@@ -65,6 +65,7 @@ async function analyzeCode(
   for (const file of parsedDiff) {
     if (file.to === "/dev/null") continue; // Ignore deleted files
     for (const chunk of file.chunks) {
+      console.info(`Creating prompt for file: ${file.to} and chunk ${JSON.stringify(chunk)}`);
       const prompt = createPrompt(file, chunk, prDetails);
       const aiResponse = await getAIResponse(prompt);
       if (aiResponse) {
@@ -124,6 +125,8 @@ async function getAIResponse(prompt: string): Promise<Array<{
   };
 
   try {
+    console.info(`Chat GPT final prompt: `);
+    console.info(prompt);
     const response = await openai.chat.completions.create({
       ...queryConfig,
       // return JSON if the model supports it:
