@@ -109,6 +109,7 @@ function analyzeCode(parsedDiff, prDetails) {
                     const newComments = createComment(file, chunk, aiResponse);
                     if (newComments) {
                         comments.push(...newComments);
+                        console.log(`Generated comments: ${JSON.stringify(newComments)}`);
                     }
                 }
             }
