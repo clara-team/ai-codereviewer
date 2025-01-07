@@ -222,8 +222,6 @@ async function main() {
     console.log("No diff found");
     return;
   }
-  
-  console.log(`PR full diff: ${JSON.stringify(diff)}`);
 
   const parsedDiff = parseDiff(diff);
 
