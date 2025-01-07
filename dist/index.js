@@ -231,6 +231,7 @@ function main() {
             console.log("No diff found");
             return;
         }
+        console.log(`PR full diff: ${JSON.stringify(diff)}`);
         const parsedDiff = (0, parse_diff_1.default)(diff);
         const excludePatterns = core
             .getInput("exclude")
