@@ -122,10 +122,11 @@ function createPrompt(file, chunk, prDetails) {
 - Provide the response in following JSON format:  {"reviews": [{"lineNumber":  <line_number>, "reviewComment": "<review comment>"}]}
 - Do not give positive comments or compliments.
 - Provide comments and suggestions ONLY if there is something to improve, otherwise "reviews" should be an empty array.
-- Do not comment changes about indentation, imports and unused variables, when you don't have the visibility of the full code.
+- Don't review import statements
 - Write the comment in GitHub Markdown format.
 - Use the given description only for the overall context and only comment the code.
 - IMPORTANT: NEVER suggest adding comments to the code.
+- IMPORTANT: Always merge comments if they are in the same line.
 
 Review the following code diff in the file "${file.to}" and take the pull request title and description into account when writing the response.
   
