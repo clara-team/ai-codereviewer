@@ -122,10 +122,7 @@ function createPrompt(file, chunk, prDetails) {
 - Provide the response in following JSON format:  {"reviews": [{"lineNumber":  <line_number>, "reviewComment": "<review comment>"}]}
 - Do not give positive comments or compliments.
 - Provide comments and suggestions ONLY if there is something to improve, otherwise "reviews" should be an empty array.
-- Ignore changes on indentation.
-- Ignore changes on imports.
-- Ignore changes on unused variable.
-- Ignore when a variable doesnt have the same name of the service.
+- Do not comment changes about indentation, imports and unused variables, when you don't have the visibility of the full code.
 - Write the comment in GitHub Markdown format.
 - Use the given description only for the overall context and only comment the code.
 - IMPORTANT: NEVER suggest adding comments to the code.
