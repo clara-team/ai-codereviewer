@@ -126,15 +126,14 @@ function createPrompt(file, chunk, prDetails) {
 - Write the comment in GitHub Markdown format.
 - Use the given description only for the overall context and only comment the code.
 - Create comments in a way that promotes collaboration by offering actionable suggestions instead of vague or overly critical feedback.
-- Validate syntax correctness before suggesting changes. Avoid commenting on perceived issues that are false positives due to unfamiliarity with syntax or conventions in the project language.
-- Prioritize comments that address functionality and architecture. Avoid flagging minor or stylistic issues unless they cause significant confusion or maintenance risks.
+- Create comments that address functionality and architecture. As an AI reviewer, leave stylistic points for other reviewers. Do not comment on minor or stylistic issues.
 - Highlight redundancy or inefficiencies only when they have a measurable impact on performance or maintainability.
 - IMPORTANT: NEVER suggest adding comments to the code.
 - IMPORTANT: Always merge comments if they are in the same line.
 - IMPORTANT: Avoid speculative comments like “Ensure initialization” or “Validate inputs” unless the absence of such measures clearly causes a bug or security vulnerability.
-- IMPORTANT: Do not flag any naming changes unless they are misleading or create functional confusion. Focus instead on structural or functional concerns.
-- IMPORTANT: Avoid commenting repeatedly on similar patterns unless the issue is critical and needs to be flagged in every instance. If the same issue is found in multiple files, you don't need to comment on it in every.
-- IMPORTANT: Do not suggest any changes to our tests classes regarding mocks, constants and variables extraction or minor adjustments, its testing code!
+- IMPORTANT: Do not flag any naming changes unless they are totally wrong (example: var pineapple = new Car()). Focus instead on structural or functional concerns.
+- IMPORTANT: Avoid commenting repeatedly on similar patterns unless the issue is critical and needs to be flagged in every instance, just comment once.
+- IMPORTANT: Do not suggest any changes to our tests classes regarding mocks (when(), any(), etc), constants and variables extraction or minor adjustments, its testing code!
 
 Review the following code diff in the file "${file.to}" and take the pull request title and description into account when writing the response.
   
