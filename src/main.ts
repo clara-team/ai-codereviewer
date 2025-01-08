@@ -88,15 +88,16 @@ function createPrompt(file: File, chunk: Chunk, prDetails: PRDetails): string {
 - Don't review import statements
 - Write the comment in GitHub Markdown format.
 - Use the given description only for the overall context and only comment the code.
-- Frame comments in a way that promotes collaboration by offering actionable suggestions instead of vague or overly critical feedback.
-- Avoid commenting repeatedly on similar patterns unless the issue is critical and needs to be flagged in every instance. Consolidate comments into a single actionable suggestion where applicable.
+- Create comments in a way that promotes collaboration by offering actionable suggestions instead of vague or overly critical feedback.
 - Validate syntax correctness before suggesting changes. Avoid commenting on perceived issues that are false positives due to unfamiliarity with syntax or conventions in the project language.
-- Prioritize comments that address functionality, architecture, or readability. Avoid flagging minor or stylistic issues unless they cause significant confusion or maintenance risks.
-- Highlight redundancy or inefficiencies only when they have a measurable impact on performance, readability, or maintainability.
+- Prioritize comments that address functionality and architecture. Avoid flagging minor or stylistic issues unless they cause significant confusion or maintenance risks.
+- Highlight redundancy or inefficiencies only when they have a measurable impact on performance or maintainability.
 - IMPORTANT: NEVER suggest adding comments to the code.
 - IMPORTANT: Always merge comments if they are in the same line.
-- IMPORTANT: Only flag potential issues that are verifiable from the provided code context. Avoid speculative comments like “Ensure initialization” or “Validate inputs” unless the absence of such measures clearly causes a bug or security vulnerability.
-- IMPORTANT: Do not flag variable names unless they are misleading or create functional confusion. Focus instead on structural or functional concerns.
+- IMPORTANT: Avoid speculative comments like “Ensure initialization” or “Validate inputs” unless the absence of such measures clearly causes a bug or security vulnerability.
+- IMPORTANT: Do not flag any naming changes unless they are misleading or create functional confusion. Focus instead on structural or functional concerns.
+- IMPORTANT: Avoid commenting repeatedly on similar patterns unless the issue is critical and needs to be flagged in every instance. If the same issue is found in multiple files, you don't need to comment on it in every.
+- IMPORTANT: Do not suggest any changes to our tests classes regarding mocks, constants and variables extraction or minor adjustments, its testing code!
 
 Review the following code diff in the file "${
     file.to
