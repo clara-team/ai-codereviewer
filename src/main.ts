@@ -93,10 +93,10 @@ function createPrompt(file: File, chunk: Chunk, prDetails: PRDetails): string {
 - Highlight redundancy or inefficiencies only when they have a measurable impact on performance or maintainability.
 - IMPORTANT: NEVER suggest adding comments to the code.
 - IMPORTANT: Always merge comments if they are in the same line.
-- IMPORTANT: Avoid speculative comments like “Ensure initialization” or “Validate inputs” unless the absence of such measures clearly causes a bug or security vulnerability.
-- IMPORTANT: Do not flag any naming changes unless they are totally wrong (example: var pineapple = new Car()). Focus instead on structural or functional concerns.
+- IMPORTANT: Avoid speculative comments like “Ensure initialization” or “Validate inputs” or "Verify the usages of this change" unless the absence of such measures clearly causes a bug or security vulnerability.
+- IMPORTANT: Do not comment any renaming changes unless they are totally wrong (example: var pineapple = new Car()). Focus instead on structural or functional concerns.
 - IMPORTANT: Avoid commenting repeatedly on similar patterns unless the issue is critical and needs to be flagged in every instance, just comment once.
-- IMPORTANT: Do not suggest any changes to our tests classes regarding mocks (when(), any(), etc), constants and variables extraction or minor adjustments, its testing code!
+- IMPORTANT: Do not suggest any changes to our tests classes (class that ends with "Test") regarding Mockito methods (when(), any(), etc), constants and variables extraction or minor adjustments, its testing code!
 
 Review the following code diff in the file "${
     file.to
