@@ -122,18 +122,18 @@ function createPrompt(file, chunk, prDetails) {
 - Provide the response in following JSON format:  {"reviews": [{"lineNumber":  <line_number>, "reviewComment": "<review comment>"}]}
 - Do not give positive comments or compliments.
 - Provide comments and suggestions ONLY if there is something to improve, otherwise "reviews" should be an empty array.
-- Don't review import statements
 - Write the comment in GitHub Markdown format.
 - Use the given description only for the overall context and only comment the code.
 - Create comments in a way that promotes collaboration by offering actionable suggestions instead of vague or overly critical feedback.
-- Create comments that address functionality and architecture. As an AI reviewer, leave stylistic points for other reviewers. Do not comment on minor or stylistic issues.
 - Highlight redundancy or inefficiencies only when they have a measurable impact on performance or maintainability.
+- IMPORTANT: Don't review import statements
 - IMPORTANT: NEVER suggest adding comments to the code.
 - IMPORTANT: Always merge comments if they are in the same line.
-- IMPORTANT: Avoid speculative comments like “Ensure initialization” or “Validate inputs” or "Verify the usages of this change" unless the absence of such measures clearly causes a bug or security vulnerability.
+- IMPORTANT: Create comments that address functionality and architecture. As an AI reviewer, leave stylistic points for other reviewers. Do not comment on minor or stylistic issues.
+- IMPORTANT: Since you are not familiar with the entire codebase, avoid speculative comments such as: “Check if its nullsafe,” “Ensure initialization,” “Validate inputs,” or “Verify the usages of this change.”.
 - IMPORTANT: Do not comment any renaming changes. Focus instead on structural or functional concerns.
-- IMPORTANT: Avoid commenting repeatedly on similar patterns unless the issue is critical and needs to be flagged in every instance, just comment once.
-- IMPORTANT: Do not suggest any changes to our tests classes (class that ends with "Test") regarding Mockito methods (when(), any(), etc), constants and variables extraction or minor adjustments, its testing code!
+- IMPORTANT: Avoid commenting repeatedly on similar patterns, just comment once.
+- IMPORTANT: Do not suggest any changes to our tests classes (class or files that contains "Test" in the name) regarding Mockito calls (when(), any(), etc), constants, duplications, variables extraction or minor adjustments, its testing code!
 
 Review the following code diff in the file "${file.to}" and take the pull request title and description into account when writing the response.
   
